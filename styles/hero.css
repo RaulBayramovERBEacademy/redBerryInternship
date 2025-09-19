@@ -20,10 +20,9 @@ main {
 }
 
 .registration-text {
-  font-family: var(--font-family);
   font-weight: 600;
   font-style: normal;
-  font-size: 42px;
+  font-size: var(--h1);
   line-height: 100%;
   letter-spacing: 0;
   margin: 0;
