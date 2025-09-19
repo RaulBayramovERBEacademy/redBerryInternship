@@ -1,0 +1,136 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/header1.css" />
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/auth.css" />
+  </head>
+  <body>
+    <header>
+      <div class="left-section">
+        <img class="logo-image" src="images/logo.png" alt="RedSeam Clothing" />
+        <p class="logo-text">RedSeam Clothing</p>
+      </div>
+      <div class="right-section">
+        <img class="login-icon" src="images/user.png" alt="log in" />
+        <p class="log-in-text">Log in</p>
+      </div>
+    </header>
+    <main>
+      <div class="hero-img-container">
+        <img class="hero-img" src="images/Rectangle 10.png" alt="hero" />
+      </div>
+      <div class="hero-content-container">
+        <h1 class="registration-text">Registration</h1>
+        <div class="registration-container">
+          <div class="img-selection">
+            <div class="profile-img-container">
+              <img
+                class="profile-image"
+                src="images/camera.png"
+                alt="profile image"
+              />
+            </div>
+
+            <label class="upload-img" for="input-file">Upload image</label>
+            <input
+              type="file"
+              accept="image/jpeg, image/png, image/jpg"
+              id="input-file"
+            />
+            <button class="remove-img">Remove</button>
+          </div>
+
+          <form class="auth-form" id="registerForm">
+            <div class="form-group">
+              <label for="register-username">Username</label>
+              <input
+                type="text"
+                id="register-firstname"
+                name="firstname"
+                placeholder="First name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="register-email">Email Address</label>
+              <input
+                type="email"
+                id="register-email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+              <span class="error-message" id="register-email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                  type="password"
+                  id="register-password"
+                  name="password"
+                  placeholder="Create a password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="register-password-toggle"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <div class="password-strength">
+                <div class="strength-bar">
+                  <div class="strength-fill" id="strength-fill"></div>
+                </div>
+                <span class="strength-text" id="strength-text"
+                  >Password strength</span
+                >
+              </div>
+              <span class="error-message" id="register-password-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="register-confirm-password">Confirm Password</label>
+              <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                  type="password"
+                  id="register-confirm-password"
+                  name="confirmPassword"
+                  placeholder="Confirm your password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="register-confirm-password-toggle"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <span
+                class="error-message"
+                id="register-confirm-password-error"
+              ></span>
+            </div>
+            <button type="submit" class="auth-btn primary">
+              <span>Register</span>
+            </button>
+
+            <p>Already member?<a href="login.html">Log in</a></p>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

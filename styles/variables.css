@@ -1,0 +1,13 @@
+/* Color variables */
+:root {
+  --red: #ff4000;
+  --dark-blue: #10151f;
+  --dark-blue2: #3e424a;
+  --grey: #f8f6f7;
+  --grey2: #e1dfe1;
+  --default: #f3e7eb;
+  --white: #ffffff;
+}
+:root {
+  --font-family: 'Poppins', sans-serif;
+}
