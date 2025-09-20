@@ -15,3 +15,13 @@ document.querySelector(".remove-img").addEventListener("click", function () {
   profilePic.style.width = "20px";
   profilePic.style.height = "20px";
 });
+
+document.querySelectorAll(".eye-icon").forEach((icon, index) => {
+  icon.onclick = () => {
+    let input =
+      0 === index
+        ? document.querySelector("#register-password")
+        : document.querySelector("#register-confirm-password");
+    input.type = input.type === "password" ? "text" : "password";
+  };
+});
