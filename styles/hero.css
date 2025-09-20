@@ -11,15 +11,17 @@ main {
 }
 
 .hero-content-container {
+  height: 920px;
   position: absolute;
   left: 1121px;
-  top: 152px;
+  bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 48px;
+  justify-content: center;
 }
 
-.registration-text {
+.auth-text {
   font-weight: 600;
   font-style: normal;
   font-size: var(--h1);

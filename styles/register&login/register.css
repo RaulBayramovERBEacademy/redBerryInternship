@@ -1,0 +1,64 @@
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  width: 554px;
+  height: 518px;
+  padding: 0;
+  margin: 0;
+}
+
+.img-selection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  width: fit-content;
+  height: 100px;
+  margin-bottom: 46px;
+}
+.profile-img-container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--grey);
+  border-radius: 50%;
+}
+.profile-image {
+  width: 20px;
+  height: 20px;
+}
+#input-file {
+  display: none;
+}
+.remove-img {
+  border: 0;
+  background-color: var(--white);
+  padding: 0;
+  margin: 0;
+}
+.upload-img,
+.remove-img {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--small);
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--dark-blue2);
+}
+
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.login-container {
+  display: none;
+}
