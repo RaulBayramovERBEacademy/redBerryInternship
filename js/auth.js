@@ -42,35 +42,76 @@ document.querySelector(".targetRegister").onclick = function () {
   document.querySelector(".auth-text").innerHTML = "Register";
   document.querySelector(".img-selection").style.display = "flex";
 };
-// const form = document.getElementById("register-form");
-// const errorMsg = document.getElementById("error-msg");
+const form = document.getElementById("registerForm");
+const errorMsg = document.querySelector(".error-message");
 
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault(); // formun avtomatik submit etməsini dayandırır
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append(
+    "username",
+    document.getElementById("register-username").value
+  );
+  formData.append("email", document.getElementById("register-email").value);
+  formData.append(
+    "password",
+    document.getElementById("register-password").value
+  );
+  formData.append(
+    "password_confirmation",
+    document.getElementById("register-confirm-password").value
+  );
+  const profileFile = document.getElementById("input-file").files[0];
+  if (profileFile) {
+    formData.append("avatar", profileFile);
+  }
+  [
+    "register-username",
+    "register-email",
+    "register-password",
+    "register-confirm-password",
+  ].forEach((id) => {
+    document.getElementById(`${id}-error`).innerHTML = "";
+  });
+  try {
+    const response = await fetch(
+      "https://api.redseam.redberryinternship.ge/api/register",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      }
+    );
 
-//   const email = document.getElementById("email").value.trim();
-//   const password = document.getElementById("password").value.trim();
+    if (!response.ok) {
+      const errData = await response.json();
 
-//   let errors = [];
+      if (errData.errors) {
+        for (let field in errData.errors) {
+          const errorDiv = document.getElementById(`register-${field}-error`);
+          if (errorDiv) {
+            errorDiv.innerHTML = errData.errors[field].join("<br>");
+          }
+        }
+      } else if (errData.message) {
+        alert(errData.message);
+      }
+      return;
+    }
+    const data = await response.json();
+    console.log("Form submitted successfully:", data);
+  } catch (error) {
+    console.log(error);
+  }
+});
+function test() {
+  document.getElementById("register-username").value = "erbe";
+  document.getElementById("register-email").value = "erbe@gmail.com";
+  document.getElementById("register-password").value = "erbe";
+  document.getElementById("register-confirm-password").value = "erbe";
+  form.requestSubmit();
+}
 
-//   // Email yoxlaması: @gmail.com ilə bitməlidir
-//   if (!email.endsWith("@gmail.com")) {
-//     errors.push("Email @gmail.com formatında olmalıdır.");
-//   }
-
-//   // Password yoxlaması: minimum 3 simvol
-//   if (password.length < 3) {
-//     errors.push("Şifrə ən az 3 simvol olmalıdır.");
-//   }
-
-//   if (errors.length > 0) {
-//     errorMsg.innerHTML = errors.join("<br>");
-//     return; // validation xətası varsa, API-ə göndərmə
-//   }
-
-//   // Əgər validation keçdi, burada API-ə göndərə bilərsən
-//   errorMsg.innerHTML = "";
-//   console.log("Form uğurla keçdi:", { email, password });
-
-//   // fetch('/register', { ... }) və s. burada ola bilər
-// });
+//test();
