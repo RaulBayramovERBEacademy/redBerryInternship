@@ -4,9 +4,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles/header1.css" />
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/listingPage/products.css" />
   </head>
   <body>
     <header></header>
+    <main>
+      <div class="products">
+        <h1>Products</h1>
+        <div class="product-operations">
+          <p class="pagination-summary"></p>
+          <div class="filter-container">
+            <img src="icons/filter.png" alt="filter" />
+            <p class="filter-text">Filter</p>
+          </div>
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select" name="sort">
+            <option value="newest">New products first</option>
+            <option value="price-asc">Price, low to high</option>
+            <option value="price-desc">Price, high to low</option>
+          </select>
+        </div>
+      </div>
+      <div class="products-container"></div>
+    </main>
+
     <script src="js/header.js"></script>
   </body>
 </html>

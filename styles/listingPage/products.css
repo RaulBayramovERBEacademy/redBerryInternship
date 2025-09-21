@@ -1,0 +1,31 @@
+.products {
+  display: flex;
+  position: absolute;
+  width: 1720px;
+  height: 63px;
+  justify-content: space-between;
+  opacity: 1;
+  top: 72px;
+  left: 100px;
+  transform: rotate(0deg);
+}
+.product-operations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.sort-select {
+  display: none;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
