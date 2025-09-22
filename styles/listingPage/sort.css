@@ -1,0 +1,27 @@
+.sort-dropdown {
+  position: relative;
+}
+.sort-dropdown * {
+  box-sizing: border-box;
+}
+.select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+}
+.size-5 {
+  width: 10;
+  height: 5.75px;
+}
+.menu {
+  position: absolute;
+  list-style: none;
+  top: 3em;
+  left: 50%;
+  display: none;
+}
+.menu-open {
+  display: block;
+}

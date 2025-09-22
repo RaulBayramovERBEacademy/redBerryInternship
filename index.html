@@ -3,9 +3,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles/variables.css" />
     <link rel="stylesheet" href="styles/header1.css" />
     <link rel="stylesheet" href="styles/general.css" />
     <link rel="stylesheet" href="styles/listingPage/products.css" />
+    <link rel="stylesheet" href="styles/listingPage/sort.css" />
   </head>
   <body>
     <header></header>
@@ -13,22 +15,40 @@
       <div class="products">
         <h1>Products</h1>
         <div class="product-operations">
-          <p class="pagination-summary"></p>
+          <p class="pagination-summary">Showing 1–10 of 100 result</p>
           <div class="filter-container">
             <img src="icons/filter.png" alt="filter" />
             <p class="filter-text">Filter</p>
           </div>
-          <label for="sort-select">Sort by</label>
-          <select id="sort-select" name="sort">
-            <option value="newest">New products first</option>
-            <option value="price-asc">Price, low to high</option>
-            <option value="price-desc">Price, high to low</option>
-          </select>
+          <div class="sort-dropdown">
+            <div class="select">
+              <span class="selected">Sort by</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                width="16"
+                height="16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <ul class="menu">
+              <li>new</li>
+              <li>down</li>
+              <li>up</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="products-container"></div>
     </main>
 
     <script src="js/header.js"></script>
+    <script src="js/products.js" type="module"></script>
   </body>
 </html>
