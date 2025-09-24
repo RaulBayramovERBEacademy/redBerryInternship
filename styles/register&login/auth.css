@@ -1,21 +1,21 @@
 main {
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 .hero-img {
-  width: 948px;
+  flex: 50%;
   height: 1000px;
-  transform: rotate(0deg);
 }
 
 .hero-content-container {
-  height: 920px;
-  position: absolute;
-  left: 1121px;
-  bottom: 80px;
+  flex: 50%;
   display: flex;
   flex-direction: column;
   gap: 48px;
   justify-content: center;
+  align-items: center;
+  padding-right: 161px;
 }
 
 .auth-text {
@@ -27,6 +27,8 @@ main {
   margin: 0;
   height: 63px;
   padding: 0;
+  display: block;
+  width: 554px;
 }
 
 .form-group {
