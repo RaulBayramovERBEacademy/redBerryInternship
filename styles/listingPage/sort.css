@@ -9,7 +9,6 @@
   height: 24px;
 }
 .select-clicked {
-  background-color: antiquewhite;
 }
 .caret-rotate {
   transform: rotateY(180deg);
@@ -40,8 +39,8 @@ menu * {
   position: absolute;
   width: 223px;
   height: 184px;
-  top: 62px;
-  left: 1497px;
+  top: 53px;
+  right: 0px;
   border: 1px solid var(--grey2);
   border-radius: 8px;
   padding: 16px 0;

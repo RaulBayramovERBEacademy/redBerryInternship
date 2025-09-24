@@ -11,7 +11,7 @@ export function renderProducts(products) {
           </div>
           <div class="product-info">
             <p class="product-title">${element.name}</p>
-            <p class="product-price">${String(element.price)}</p>
+            <p class="product-price">$ ${String(element.price)}</p>
           </div>
         </div>`;
   });
