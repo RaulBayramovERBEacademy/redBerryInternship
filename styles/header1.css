@@ -49,16 +49,20 @@ header {
   flex-direction: row;
   align-items: center;
   width: fit-content;
+}
+.auth-link {
   height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
-  opacity: 1;
-  transform: rotate(0deg);
 }
 .login-icon {
   width: 20px;
   height: 20px;
 }
-/* Log in text styles */
+
 .log-in-text {
   font-weight: 500;
   font-style: normal;
@@ -66,4 +70,6 @@ header {
   line-height: 100%;
   letter-spacing: 0;
   color: var(--dark-blue);
+  text-align: start;
+  font-size: 12px;
 }
