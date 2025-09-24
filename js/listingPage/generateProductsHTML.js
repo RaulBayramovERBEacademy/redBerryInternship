@@ -1,7 +1,7 @@
 export function renderProducts(products) {
   let productContainer = document.querySelector(".products-container");
   let productHTML = "";
-  products.forEach(async (element) => {
+  products.forEach((element) => {
     productHTML += `
         <div class="product">
           <div class="product-img-container">
