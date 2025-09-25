@@ -1,5 +1,6 @@
 import { getData } from "./getProductData.js";
 import { renderProducts } from "./generateProductsHTML.js";
+import { generatePagination } from "./pagination.js";
 export function sortDropdown() {
   const select = document.querySelector(".select");
   const caret = document.querySelector(".caret");
@@ -29,8 +30,10 @@ export function sortDropdown() {
       option.classList.add("active");
       const sortParam = sortMap[option.innerText];
       try {
-        const data = await getData({ sort: sortParam });
+        let obj = { sort: sortParam };
+        const data = await getData(obj);
         renderProducts(data.data);
+        generatePagination(data, obj);
       } catch (error) {
         console.log(error);
       }
