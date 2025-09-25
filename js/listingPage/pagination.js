@@ -6,6 +6,12 @@ export function generatePagination(data, obj) {
   let prev = data.links.prev;
   let next = data.links.next;
   let first = data.links.first;
+  document.querySelector(".pagination-summary").innerHTML = `Showing ${
+    currentPage === 1 ? "1" : String(currentPage * 10 + 1)
+  }–${currentPage === 1 ? "10" : String(currentPage * 10 + 10)} of ${
+    data.meta.total
+  } result`;
+
   let links = "";
 
   let pages = [];

@@ -83,3 +83,13 @@
   height: 24px;
   font-size: 16px;
 }
+.pagination-summary {
+  font-size: 12px;
+  color: var(--dark-blue2);
+  font-weight: 400;
+}
+.divider {
+  width: 0.75px;
+  height: 14px;
+  background-color: var(--grey2);
+}
