@@ -90,6 +90,9 @@
 .price-from input:not(:placeholder-shown) + .fake-placeholder {
   display: none;
 }
+.price-to input:not(:placeholder-shown) + .fake-placeholder {
+  display: none;
+}
 #price-from,
 #price-to {
   width: 175px;
@@ -117,4 +120,7 @@
   background-color: var(--red);
   border: none;
   color: var(--white);
+}
+.fake-placeholder-none {
+  display: none;
 }

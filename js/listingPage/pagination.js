@@ -3,9 +3,6 @@ import { renderProducts } from "./generateProductsHTML.js";
 export function generatePagination(data, obj) {
   let lastPage = data.meta.last_page;
   let currentPage = data.meta.current_page;
-  let prev = data.links.prev;
-  let next = data.links.next;
-  let first = data.links.first;
   document.querySelector(".pagination-summary").innerHTML = `Showing ${
     currentPage === 1 ? "1" : String(currentPage * 10 + 1)
   }–${currentPage === 1 ? "10" : String(currentPage * 10 + 10)} of ${

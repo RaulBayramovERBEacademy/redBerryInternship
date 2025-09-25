@@ -1,7 +1,7 @@
 import { getData } from "./getProductData.js";
 import { renderProducts } from "./generateProductsHTML.js";
 import { generatePagination } from "./pagination.js";
-export function sortDropdown() {
+export function sortDropdown(obj, refreshProducts) {
   const select = document.querySelector(".select");
   const caret = document.querySelector(".caret");
   const menu = document.querySelector(".menu");
@@ -19,6 +19,9 @@ export function sortDropdown() {
     document
       .querySelector(".filter-dropdown")
       .classList.remove("filter-dropdown-open");
+    document
+      .querySelector(".pagination-summary")
+      .classList.remove("pagination-summary-close");
   });
   options.forEach((option) => {
     option.addEventListener("click", async function (e) {
@@ -32,13 +35,12 @@ export function sortDropdown() {
       });
       option.classList.add("active");
       const sortParam = sortMap[option.innerText];
+
+      obj.sort = sortParam;
       try {
-        let obj = { sort: sortParam };
-        const data = await getData(obj);
-        renderProducts(data.data);
-        generatePagination(data, obj);
+        await refreshProducts(obj);
       } catch (error) {
-        console.log(error);
+        console.log("error: ", error.message);
       }
     });
   });

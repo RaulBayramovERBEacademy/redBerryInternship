@@ -73,7 +73,8 @@
   font-size: 16px;
 }
 .pagination-summary {
-  width: 158px;
+  width: fit-content;
+  min-width: 158px;
   font-size: 12px;
   color: var(--dark-blue2);
   font-weight: 400;
