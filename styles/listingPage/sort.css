@@ -8,8 +8,7 @@
   align-items: center;
   height: 24px;
 }
-.select-clicked {
-}
+
 .caret-rotate {
   transform: rotateY(180deg);
 }

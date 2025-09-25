@@ -1,0 +1,120 @@
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  width: 70px;
+  height: 24px;
+  position: relative;
+}
+
+.filter-icon {
+  width: 24px;
+  height: 24px;
+}
+.filter-text {
+  font-size: var(--p);
+  color: var(--dark-blue);
+}
+.filter-title-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+}
+.filter-dropdown {
+  display: none;
+}
+
+.filter-dropdown-open {
+  width: 392px;
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid var(--grey2);
+  border-radius: 8px;
+  padding: 16px;
+  position: absolute;
+  top: 53px;
+  right: -16px;
+  box-sizing: border-box;
+  background-color: var(--white);
+}
+
+.filter-title {
+  font-size: var(--p);
+  height: 24px;
+  color: var(--dark-blue);
+  font-weight: 600;
+  width: 100%;
+  text-align: start;
+}
+.apply-price-range {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.price-input-container {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0px;
+}
+.price-from,
+.price-to {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+.fake-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: var(--small);
+  color: var(--dark-blue2);
+}
+.fake-placeholder span {
+  color: var(--red);
+}
+.price-from input:not(:placeholder-shown) + .fake-placeholder {
+  display: none;
+}
+#price-from,
+#price-to {
+  width: 175px;
+  outline: 0;
+  border: 1px solid var(--grey2);
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  padding: 0 12px;
+}
+.filter-apply-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.filter-apply {
+  width: 124px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: var(--red);
+  border: none;
+  color: var(--white);
+}

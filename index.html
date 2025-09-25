@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/listingPage/products.css" />
     <link rel="stylesheet" href="styles/listingPage/sort.css" />
     <link rel="stylesheet" href="styles/listingPage/pagination.css" />
+    <link rel="stylesheet" href="styles/listingPage/filter.css" />
   </head>
   <body>
     <header></header>
@@ -19,8 +20,43 @@
           <p class="pagination-summary">Showing 1–10 of 100 result</p>
           <span class="divider"></span>
           <div class="filter-container">
-            <img src="icons/filter.png" alt="filter" />
-            <p class="filter-text">Filter</p>
+            <div class="filter-title-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="filter-icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+                />
+              </svg>
+
+              <p class="filter-text">Filter</p>
+            </div>
+
+            <div class="filter-dropdown">
+              <p class="filter-title">Select Price</p>
+              <div class="apply-price-range">
+                <div class="price-input-container">
+                  <div class="price-from">
+                    <input id="price-from" placeholder="" type="number" />
+                    <span class="fake-placeholder">From <span>*</span></span>
+                  </div>
+                  <div class="price-to">
+                    <input id="price-to" placeholder="" type="number" />
+                    <span class="fake-placeholder">To <span>*</span></span>
+                  </div>
+                </div>
+                <div class="filter-apply-btn-container">
+                  <button class="filter-apply">Apply</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="sort-dropdown">
             <div class="select">

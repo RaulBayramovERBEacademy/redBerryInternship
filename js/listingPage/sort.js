@@ -16,6 +16,9 @@ export function sortDropdown() {
     select.classList.toggle("select-clicked");
     menu.classList.toggle("menu-open");
     caret.classList.toggle("caret-rotate");
+    document
+      .querySelector(".filter-dropdown")
+      .classList.remove("filter-dropdown-open");
   });
   options.forEach((option) => {
     option.addEventListener("click", async function (e) {
