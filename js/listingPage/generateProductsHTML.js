@@ -3,7 +3,7 @@ export function renderProducts(products) {
   let productHTML = "";
   products.forEach((element) => {
     productHTML += `
-        <div class="product">
+        <div class="product" data-id="${element.id}">
           <div class="product-img-container">
             <img class="product-img" src="${element.cover_image}" alt="${
       element.name

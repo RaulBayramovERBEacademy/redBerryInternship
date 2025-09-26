@@ -94,7 +94,7 @@ header {
   width: fit-content;
   height: fit-content;
 }
-.right-section-2 .cart-icon {
+.cart-icon {
   height: 24px;
   width: 24px;
   color: var(--dark-blue);
