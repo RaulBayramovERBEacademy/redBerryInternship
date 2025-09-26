@@ -7,7 +7,6 @@ import { filterManager } from "./listingPage/filter.js";
 (async function () {
   try {
     let obj = {};
-
     filterManager(obj, refreshProducts);
     sortDropdown(obj, refreshProducts);
     await refreshProducts(obj, refreshProducts);

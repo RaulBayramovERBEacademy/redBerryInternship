@@ -124,3 +124,39 @@
 .fake-placeholder-none {
   display: none;
 }
+
+.applied-filters-container {
+  display: none;
+}
+
+.applied-filters-container-open {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color: var(--white);
+  margin-bottom: 26px;
+}
+.applied-filters-container-open .applied-filter {
+  height: 37px;
+  width: 141px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 8px 16px;
+  border: 1px solid var(--grey2);
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.applied-filters-container-open .applied-filter p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-blue2);
+}
+.applied-filters-container-open .delete-filter {
+  width: 12px;
+  height: 12px;
+}

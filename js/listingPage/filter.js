@@ -31,5 +31,25 @@ export function filterManager(obj, refreshProducts) {
       .querySelector(".filter-dropdown")
       .classList.remove("filter-dropdown-open");
     await refreshProducts(obj);
+    if (obj.filter.price_from && obj.filter.price_to) {
+      document
+        .querySelector(".applied-filters-container")
+        .classList.toggle("applied-filters-container-open");
+      document.querySelector(".applied-filter p").innerHTML = `
+      Price: ${obj.filter.price_from}-${obj.filter.price_to}
+    `;
+    }
+    document
+      .querySelector(".pagination-summary")
+      .classList.remove("pagination-summary-close");
   });
+  document
+    .querySelector(".delete-filter")
+    .addEventListener("click", async function () {
+      document
+        .querySelector(".applied-filters-container")
+        .classList.remove("applied-filters-container-open");
+      obj.filter = {};
+      await refreshProducts(obj);
+    });
 }
