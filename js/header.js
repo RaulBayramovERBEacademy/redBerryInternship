@@ -1,3 +1,4 @@
+import { cartManager } from "./cart.js";
 document.addEventListener("DOMContentLoaded", async () => {
   const headerContainer = document.querySelector("header");
   if (headerContainer) {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "index.html";
       });
       headerManager();
+      cartManager();
     } catch (err) {
       console.error("Error occured when header was loaded:", err);
     }

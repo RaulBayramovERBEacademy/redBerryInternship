@@ -107,7 +107,7 @@ function setupAuthForm() {
         }
         return;
       } else {
-        onsole.log("Register success:", data);
+        console.log("Register success:", data);
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
       }

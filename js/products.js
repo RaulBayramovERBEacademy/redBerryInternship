@@ -3,6 +3,7 @@ import { renderProducts } from "./listingPage/generateProductsHTML.js";
 import { getData } from "./listingPage/getProductData.js";
 import { generatePagination } from "./listingPage/pagination.js";
 import { filterManager } from "./listingPage/filter.js";
+import { cartManager } from "./cart.js";
 function setupProductClick() {
   const container = document.querySelector(".products-container");
 

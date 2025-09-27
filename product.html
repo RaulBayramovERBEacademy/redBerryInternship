@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/general.css" />
     <link rel="stylesheet" href="styles/header1.css" />
     <link rel="stylesheet" href="styles/listing/product/product.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
   </head>
   <body>
     <header></header>
@@ -20,8 +21,27 @@
       </div>
       <div class="product-options-container"></div>
     </div>
-
-    <script src="js/header.js"></script>
+    <div class="cart-sidebar-container">
+      <div class="cart-sidebar-title">
+        <p>Shopping Cart</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="close-cart-icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="shopping-cart"></div>
+      <div class="shopping-cart-info"></div>
+      <div class="btn-checkout-link">Go to Checkout</div>
+    </div>
+    <script src="js/header.js" type="module"></script>
     <script src="js/productPage/product.js" type="module"></script>
   </body>
 </html>
