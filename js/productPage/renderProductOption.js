@@ -83,7 +83,7 @@ export function renderProductOption(product) {
         </div>
         <div style="display: block;
              width: 100%;
-             height: 2px;
+             height: 1px;
              background-color: #E1DFE1;" 
             class="divider"></div>
 
@@ -103,15 +103,19 @@ export function renderProductOption(product) {
   const currentImg = document.querySelector(".product-selected-img");
   document.querySelector(".product-options-container").innerHTML =
     productOptionsContainerHTML;
+  let finalColor = product.color;
+  let finalSize = product.size;
+  let finalQuantity = 1;
+  const token = localStorage.getItem("token");
   document.querySelector(".avaliable-colors").addEventListener("click", (e) => {
     if (e.target.classList.contains("color")) {
       document
         .querySelectorAll(".color")
         .forEach((c) => c.classList.remove("selected"));
       e.target.classList.add("selected");
-      const selectedColor = e.target.dataset.color;
+      finalColor = e.target.dataset.color;
 
-      if (selectedColor === "Multi") {
+      if (finalColor === "Multi") {
         currentImg.src = product.images[product.images.length - 1];
       } else {
         const colors = Array.from(document.querySelectorAll(".color"));
@@ -126,7 +130,33 @@ export function renderProductOption(product) {
         .querySelectorAll(".size")
         .forEach((c) => c.classList.remove("selected"));
       e.target.classList.add("selected");
-      const selectedColor = e.target.dataset.size;
+      finalSize = e.target.dataset.size;
     }
   });
+  document.querySelector("#qty").addEventListener("change", (e) => {
+    finalQuantity = parseInt(e.target.value, 10) || 1;
+  });
+  console.log(finalColor, finalSize, finalQuantity);
+  document
+    .querySelector(".product-add-to-cart-container")
+    .addEventListener("click", async function () {
+      const response = await fetch(
+        `https://api.redseam.redberryinternship.ge/api/cart/products/${product.id}`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            quantity: finalQuantity,
+            color: finalColor,
+            size: finalSize,
+          }),
+        }
+      );
+
+      const data = await response.json();
+    });
 }
