@@ -44,5 +44,14 @@
 .product-options-container {
   width: 704px;
   height: 907px;
-  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+}
+.product-add-to-cart-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--white);
 }
