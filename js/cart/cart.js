@@ -61,5 +61,6 @@ export async function cartManager() {
         await removeCartItem(productId, color, size);
         await renderCart();
       }
+      window.dispatchEvent(new Event("cartUpdated"));
     });
 }

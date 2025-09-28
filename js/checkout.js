@@ -58,6 +58,72 @@ export async function checkoutManager() {
     console.log(error);
   }
 })();
+document
+  .getElementById("checkoutForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+
+    const CheckoutDetails = {
+      name: document.getElementById("name").value.trim(),
+      surname: document.getElementById("surname").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      address: document.getElementById("address").value.trim(),
+      zip_code: document.getElementById("zip").value.trim(),
+    };
+    console.log(CheckoutDetails);
+    if (
+      !CheckoutDetails.name ||
+      !CheckoutDetails.surname ||
+      !CheckoutDetails.email ||
+      !CheckoutDetails.zip_code ||
+      !CheckoutDetails.address
+    ) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://api.redseam.redberryinternship.ge/api/cart/checkout",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(CheckoutDetails),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Checkout successful:", data);
+        await renderCart();
+        await renderCheckout();
+        document.querySelector(".checkout-success").classList.add("open");
+        document
+          .querySelector(".close-success-tab")
+          .addEventListener("click", () => {
+            document
+              .querySelector(".checkout-success")
+              .classList.remove("open");
+          });
+      } else {
+        console.error("Checkout failed:", data);
+        alert(data.message || "Checkout failed!");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while processing checkout.");
+    }
+  });
+window.addEventListener("cartUpdated", async () => {
+  await renderCheckout();
+});
 export async function renderCheckout() {
   const cart = document.querySelector(".checkout-shopping-cart");
   let cartItemsHTML = "";

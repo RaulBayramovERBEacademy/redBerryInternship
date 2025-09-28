@@ -24,12 +24,14 @@
 
 .checkout-shopping-cart {
   width: 100%;
-  max-height: 304px;
+  height: 304px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 36px;
+  overflow-y: auto;
+  padding-right: 8px;
 }
+
 .checkout-cart-info {
   width: 100%;
   height: 635px;
@@ -37,6 +39,12 @@
   display: flex;
   flex-direction: column;
   gap: 36px;
+}
+.checkout-item-options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .btn-checkout {
   width: 100%;
@@ -55,6 +63,7 @@
   color: var(--white);
   font-size: 18px;
   font-weight: 500;
+  border: none;
 }
 .checkout-shopping-info {
   flex: 1;
@@ -122,9 +131,7 @@
   left: 15px;
   top: 10px;
 }
-.checkout-form .form-row.full-width input::placeholder {
-  padding-left: 24px;
-}
+
 .checkout-form input {
   width: 277px;
   height: 42px;
@@ -136,9 +143,90 @@
 }
 .form-row.full-width input {
   width: 578px;
+  padding-left: 38px;
 }
 
 .checkout-form input:focus {
   border: 1px solid var(--dark-blue);
   outline: 0;
+}
+.checkout-success {
+  display: none;
+}
+
+.checkout-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 20px;
+  width: 500px;
+  height: 400px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.checkout-success.open {
+  display: flex;
+}
+
+.checkout-success.open .check {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-success.open .check-icon {
+  width: 40px;
+  height: 40px;
+  color: #318a1d;
+}
+
+.checkout-success.open h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--dark-blue);
+}
+
+.checkout-success.open p {
+  font-size: 16px;
+  color: var(--dark-blue2);
+  margin: 0;
+}
+
+.checkout-success.open .continue-shopping {
+  margin-top: 24px;
+  padding: 14px 32px;
+  background-color: var(--red);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkout-success.open .continue-shopping:hover {
+  background-color: var(--red);
+}
+.close-success-tab {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
 }

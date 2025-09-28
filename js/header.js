@@ -1,4 +1,5 @@
 import { cartManager } from "./cart/cart.js";
+
 export function updateHeader() {
   document.addEventListener("DOMContentLoaded", async () => {
     const headerContainer = document.querySelector("header");
