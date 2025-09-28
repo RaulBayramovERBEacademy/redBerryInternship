@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/header1.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
+    <link rel="stylesheet" href="styles/checkout.css" />
+  </head>
+  <body>
+    <header></header>
+    <div class="checkout-page-title">Checkout</div>
+    <div class="checkout-container">
+      <div class="checkout-form-container">
+        <h2>Order details</h2>
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-row">
+            <input type="text" placeholder="Name" name="name" required />
+            <input type="text" placeholder="Surname" name="surname" required />
+          </div>
+          <div class="form-row full-width">
+            <input type="email" placeholder="Email" name="email" required />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="envelope-icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              />
+            </svg>
+          </div>
+          <div class="form-row">
+            <input type="text" placeholder="Address" name="address" required />
+            <input
+              type="text"
+              form="checkoutForm"
+              placeholder="Zip code"
+              name="zip"
+              required
+            />
+          </div>
+        </form>
+      </div>
+      <div class="checkout-summary-container">
+        <div class="checkout-shopping-cart"></div>
+        <div class="checkout-shopping-info"></div>
+        <div type="submit" class="btn-checkout">Pay</div>
+      </div>
+    </div>
+    <div class="cart-sidebar-container">
+      <div class="cart-sidebar-title">
+        <p>Shopping Cart</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="close-cart-icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="shopping-cart"></div>
+      <div class="shopping-cart-info"></div>
+      <div class="btn-checkout-link">Go to Checkout</div>
+    </div>
+    <script src="js/header.js" type="module"></script>
+    <script src="js/checkout.js" type="module"></script>
+  </body>
+</html>
