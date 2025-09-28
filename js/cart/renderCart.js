@@ -15,6 +15,9 @@ export async function renderCart() {
   );
   const cartData = await response.json();
   console.log(cartData);
+  document.querySelector(
+    ".cart-sidebar-title p "
+  ).innerHTML = `Shopping Cart(${cartData.length})`;
   cartData.forEach((item) => {
     cartItemsHTML += `
         <div class="cart-item-container" data-key="${item.id}-${item.color}-${
@@ -75,4 +78,25 @@ export async function renderCart() {
         <p class="total">Total <span>$ ${String(total)} </span></p>
   `;
   document.querySelector(".shopping-cart-info").innerHTML = shoppingCartInfo;
+  document.querySelector(".btn-checkout-link").classList.remove("close");
+  if (cartData.length === 0) {
+    cart.innerHTML = `
+    <div class="empty-cart-container">
+        <div class="empty-cart-img-container">
+          <img class="empty-cart-img" src="images/cart.png" alt="" />
+          <img class="empty-cart-grid-img" src="images/cart-grid.png" alt="" />
+        </div>
+        <h1>Ooops!</h1>
+        <p>You’ve got nothing in your cart just yet...</p>
+        <button class="start-shoppping-btn">Start Shopping</button>
+    </div>
+    `;
+    document.querySelector(".shopping-cart-info").innerHTML = "";
+    document.querySelector(".btn-checkout-link").classList.toggle("close");
+    document
+      .querySelector(".start-shoppping-btn")
+      .addEventListener("click", () => {
+        window.location.href = "/index.html";
+      });
+  }
 }
