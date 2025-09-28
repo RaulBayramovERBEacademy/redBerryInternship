@@ -1,16 +1,4 @@
-export async function cartManager() {
-  document.querySelector(".cart-icon").addEventListener("click", function () {
-    document
-      .querySelector(".cart-sidebar-container")
-      .classList.toggle("cart-sidebar-container-open");
-  });
-  document
-    .querySelector(".close-cart-icon")
-    .addEventListener("click", function () {
-      document
-        .querySelector(".cart-sidebar-container")
-        .classList.remove("cart-sidebar-container-open");
-    });
+export async function renderCart() {
   const cart = document.querySelector(".shopping-cart");
   let cartItemsHTML = "";
   const token = localStorage.getItem("token");
@@ -29,7 +17,9 @@ export async function cartManager() {
   console.log(cartData);
   cartData.forEach((item) => {
     cartItemsHTML += `
-        <div class="cart-item-container">
+        <div class="cart-item-container" data-key="${item.id}-${item.color}-${
+      item.size
+    }">
           <div class="cart-item-img-container">
           <img class="cart-item-img" src="${item.cover_image}" alt="" />
           </div>
@@ -40,7 +30,7 @@ export async function cartManager() {
                     <p class="item-color">${item.color}</p>
                     <p class="item-size">${item.size}</p>
                 </div>
-                <div class="item-price">$ ${item.price}</div>
+                <div class="item-price">$ ${item.price * item.quantity}</div>
             </div>
             <div class="cart-item-options-container">
             <div class="cart-item-quantity">
@@ -54,7 +44,7 @@ export async function cartManager() {
                   d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z"
                 />
               </svg>
-              <p>${item.quantity}</p>
+              <p class="quantity-${String(item.id)}">${item.quantity}</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -74,6 +64,7 @@ export async function cartManager() {
     `;
   });
   cart.innerHTML = cartItemsHTML;
+
   let subtotal = cartData.reduce((sum, item) => sum + item.total_price, 0);
   let delivery = cartData.length * 2.5;
   let total = subtotal + delivery;
@@ -84,7 +75,4 @@ export async function cartManager() {
         <p class="total">Total <span>$ ${String(total)} </span></p>
   `;
   document.querySelector(".shopping-cart-info").innerHTML = shoppingCartInfo;
-  document.querySelector(".btn-checkout-link").addEventListener("click", () => {
-    window.location.href = "/checkout.html";
-  });
 }

@@ -1,3 +1,5 @@
+import { cartManager } from "../cart/cart.js";
+import { renderCart } from "../cart/renderCart.js";
 export function renderProductOption(product) {
   const COLORS = {
     Beige: "#F5F5DC",
@@ -140,23 +142,25 @@ export function renderProductOption(product) {
   document
     .querySelector(".product-add-to-cart-container")
     .addEventListener("click", async function () {
-      const response = await fetch(
-        `https://api.redseam.redberryinternship.ge/api/cart/products/${product.id}`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            quantity: finalQuantity,
-            color: finalColor,
-            size: finalSize,
-          }),
-        }
-      );
+      try {
+        const response = await fetch(
+          `https://api.redseam.redberryinternship.ge/api/cart/products/${product.id}`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              quantity: finalQuantity,
+              color: finalColor,
+              size: finalSize,
+            }),
+          }
+        );
+      } catch (error) {}
 
-      const data = await response.json();
+      await renderCart();
     });
 }

@@ -1,24 +1,29 @@
-import { cartManager } from "./cart.js";
-document.addEventListener("DOMContentLoaded", async () => {
-  const headerContainer = document.querySelector("header");
-  if (headerContainer) {
-    try {
-      const response = await fetch("/header.html");
-      const data = await response.text();
-      headerContainer.innerHTML = data;
-      document.querySelector(".auth-link").addEventListener("click", () => {
-        window.location.href = "auth.html";
-      });
-      document.querySelector(".left-section").addEventListener("click", () => {
-        window.location.href = "index.html";
-      });
-      headerManager();
-      cartManager();
-    } catch (err) {
-      console.error("Error occured when header was loaded:", err);
+import { cartManager } from "./cart/cart.js";
+export function updateHeader() {
+  document.addEventListener("DOMContentLoaded", async () => {
+    const headerContainer = document.querySelector("header");
+    if (headerContainer) {
+      try {
+        const response = await fetch("/header.html");
+        const data = await response.text();
+        headerContainer.innerHTML = data;
+        document.querySelector(".auth-link").addEventListener("click", () => {
+          window.location.href = "auth.html";
+        });
+        document
+          .querySelector(".left-section")
+          .addEventListener("click", () => {
+            window.location.href = "index.html";
+          });
+        headerManager();
+        await cartManager();
+      } catch (err) {
+        console.error("Error occured when header was loaded:", err);
+      }
     }
-  }
-});
+  });
+}
+updateHeader();
 function headerManager() {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) return;
