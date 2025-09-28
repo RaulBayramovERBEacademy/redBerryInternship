@@ -112,6 +112,11 @@ document
               .querySelector(".checkout-success")
               .classList.remove("open");
           });
+        document
+          .querySelector(".continue-shopping")
+          .addEventListener("click", () => {
+            window.location.href = "index.html";
+          });
       } else {
         console.error("Checkout failed:", data);
         alert(data.message || "Checkout failed!");
